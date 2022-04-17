@@ -226,7 +226,8 @@
                   'callback' : verifyCallback,
                   'theme' : 'dark'
                 });
-                swal.hideLoading()
+                setTimeout(() => { swal.hideLoading()}, 1050);
+                
             };
         
         var verifyCallback = function(response) {
