@@ -221,12 +221,12 @@
 
     <script type="text/javascript">
         var onloadCallback = function() {
-            swal.hideLoading()
             grecaptcha.render('recaptcha2', {
                   'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
                   'callback' : verifyCallback,
                   'theme' : 'dark'
                 });
+                swal.hideLoading()
             };
         
         var verifyCallback = function(response) {
