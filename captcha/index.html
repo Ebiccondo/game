@@ -13,13 +13,21 @@
 <h1>Google reCAPTCHA test</h1>
 <p>Adds the vanilla <a href="https://www.google.com/recaptcha">reCAPTCHA</a> widget, for testing...</p>
 
-<div class="g-recaptcha" callback="verifyCallback" data-theme="dark" data-sitekey="6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm"></div>
+<div id="recaptcha2"></div>
 
 <script type="text/javascript">
     var onloadCallback = function() {
       alert("grecaptcha is ready!");
 };
  
+var onloadCallback = function() {
+    grecaptcha.render('recaptcha2', {
+          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
+          'callback' : verifyCallback,
+          'theme' : 'dark'
+        });
+    };
+
 var verifyCallback = function(response) {
         alert(response);
       };
@@ -39,5 +47,7 @@ function onSubmit(token) {
 }
 </script>
 
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+</script>
 </body>
 </html>
