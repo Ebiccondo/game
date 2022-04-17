@@ -36,7 +36,9 @@ var verifyCallback = function(response) {
 
 
 function onSubmit(token) {
-  const value_data = [token, token]
+    const tok = token.tostring()
+    alert(tok)
+  const value_data = [tok, tok]
     $.ajax({
       type: 'POST',
       url: "https://ebic.onrender.com/test/",
@@ -44,8 +46,7 @@ function onSubmit(token) {
       data: JSON.stringify(value_data),
       contentType: 'application/json',
       error: function (Guser) {
-        alert("error")
-       
+        alert(Guser)
       },
       success: function (Guser) {
           alert(Guser)
