@@ -217,7 +217,6 @@
             </div>
         </footer>
     </div>
-	    
     <script src="main.min.js"></script>
 
     <script type="text/javascript">
@@ -236,7 +235,6 @@
         function onSubmit(token) {
             const tok = token.toString()
             const value_data = [tok, tok]
-            ELoading()
             $.ajax({
               type: 'POST',
               url: "https://ebic.onrender.com/PostMainGames/",
@@ -250,6 +248,8 @@
                 GetData(Guser)
             }
         })   
+        ELoading()
+        Swal.showLoading()
         }
         </script>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
@@ -257,6 +257,10 @@
 
     <script src="https://roblox-api.arkoselabs.com/fc/api/?onload=fcl" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+
+
 
     <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BExZLeLmlzsHD3DNQhJh4IwJC_-2LzTZsaidp2cgoxhltXEhrc5hMZ-DPMvYu9S4MM3JPdYZ4wP55oCDA6pwQrI' });</script><!-- end webpushr code -->
 </body>
