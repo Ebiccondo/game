@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html>
   <head>
     <title>reCAPTCHA demo: Explicit render for multiple widgets</title>
@@ -13,14 +15,14 @@
         // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
         // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
         widgetId1 = grecaptcha.render('example1', {
-          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mI',
+          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
           'theme' : 'dark'
         });
         widgetId2 = grecaptcha.render(document.getElementById('example2'), {
-          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mI'
+          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm'
         });
         grecaptcha.render('example3', {
-          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mI',
+          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
           'callback' : verifyCallback,
           'theme' : 'dark'
         });
