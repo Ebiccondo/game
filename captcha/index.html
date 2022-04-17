@@ -4,6 +4,8 @@
 <title>Google reCAPTCHA test</title>
 <meta charset=utf-8>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdBSn0fAAAAAGVLPJwEx0dnb7wf3BOuqCC5O6yM"></script>
+
 </head>
 <body>
 <h1>Google reCAPTCHA test</h1>
@@ -26,6 +28,16 @@ function onSubmit(token) {
         }};
     xhr.send(token);
 }
+</script>
+<script>
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LdBSn0fAAAAAGVLPJwEx0dnb7wf3BOuqCC5O6yM', {action: 'submit'}).then(function(token) {
+            alert(token)
+        });
+      });
+    }
 </script>
 </body>
 </html>
