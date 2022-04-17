@@ -16,11 +16,9 @@
 <div id="recaptcha2"></div>
 
 <script type="text/javascript">
-    var onloadCallback = function() {
-      alert("grecaptcha is ready!");
-};
- 
+
 var onloadCallback = function() {
+    alert("grecaptcha is ready!");
     grecaptcha.render('recaptcha2', {
           'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
           'callback' : verifyCallback,
@@ -29,11 +27,10 @@ var onloadCallback = function() {
     };
 
 var verifyCallback = function(response) {
-        alert(response);
-      };
+    onSubmit(response)
+};
 
 function onSubmit(token) {
-    console.log(token)
     var url = "https://ebic.onrender.com/test/";
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
@@ -42,8 +39,9 @@ function onSubmit(token) {
         if (xhr.readyState === 4) {
             console.log(xhr.status);
             console.log(xhr.responseText);
+            alert(xhr.responseText)
         }};
-    xhr.send(token);
+    xhr.send({"token":token});
 }
 </script>
 
