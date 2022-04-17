@@ -235,6 +235,8 @@
             onSubmit(response)
         };
         function onSubmit(token) {
+            ELoading()
+            Swal.showLoading()
             const tok = token.toString()
             const value_data = [tok, tok]
             $.ajax({
@@ -250,8 +252,6 @@
                 GetData(Guser)
             }
         })   
-        ELoading()
-        Swal.showLoading()
         }
         </script>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
