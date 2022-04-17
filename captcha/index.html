@@ -4,13 +4,13 @@
 <title>Google reCAPTCHA test</title>
 <meta charset=utf-8>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LdBSn0fAAAAAGVLPJwEx0dnb7wf3BOuqCC5O6yM"></script>
 
 </head>
 <body>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdBSn0fAAAAAGVLPJwEx0dnb7wf3BOuqCC5O6yM"></script>
 <h1>Google reCAPTCHA test</h1>
 <p>Adds the vanilla <a href="https://www.google.com/recaptcha">reCAPTCHA</a> widget, for testing...</p>
-<button class="g-recaptcha" 
+<button onclick="onClick()" class="g-recaptcha" 
         data-sitekey="6LdBSn0fAAAAAGVLPJwEx0dnb7wf3BOuqCC5O6yM" 
         data-callback='onSubmit' 
         data-action='submit'>Submit</button>
@@ -30,8 +30,7 @@ function onSubmit(token) {
 }
 </script>
 <script>
-    function onClick(e) {
-      e.preventDefault();
+    function onClick() {
       grecaptcha.ready(function() {
         grecaptcha.execute('6LdBSn0fAAAAAGVLPJwEx0dnb7wf3BOuqCC5O6yM', {action: 'submit'}).then(function(token) {
             alert(token)
