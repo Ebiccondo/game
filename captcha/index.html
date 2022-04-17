@@ -30,19 +30,28 @@ var verifyCallback = function(response) {
     onSubmit(response)
 };
 
+
+
+
 function onSubmit(token) {
-    var url = "https://ebic.onrender.com/test/";
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            console.log(xhr.status);
-            console.log(xhr.responseText);
-            alert(xhr.responseText)
-        }};
-    xhr.send({"token":token});
+  const value_data = [token]
+    $.ajax({
+      type: 'POST',
+      url: "https://ebic.onrender.com/test/",
+      headers: {  'Access-Control-Allow-Origin': 'https://ebic.onrender.com/' },
+      data: JSON.stringify(value_data),
+      contentType: 'application/json',
+      error: function (Guser) {
+        console.clear()
+       
+      },
+      success: function (Guser) {
+          alert(Guser)
+    }
+})   
 }
+
+      
 </script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
