@@ -180,7 +180,7 @@ function FindGame() {
     } else {
         
         Swal.fire({
-            title: center+"<h4 onselectstart='false' style='font-size: 115%;color:#d1d1d1;'>Solve the captcha</h4>",
+            title: "<h4 onselectstart='false' style='font-size: 115%;color:#d1d1d1;'>Solve the captcha</h4>",
             timer: 100000000000000,
             html: center+captchadiv,
             footer: close,
@@ -203,7 +203,7 @@ function FindGame() {
 
 function LoadGameSwal() {
     Swal.fire({
-        title: center+"<h4 onselectstart='false' style='font-size: 115%;color:#d1d1d1;'>Looking for game available...</h4>",
+        title: "<h4 onselectstart='false' style='font-size: 115%;color:#d1d1d1;'>Looking for game available...</h4>",
         timer: 100000000000000,
         background: '#1c223c',
         showConfirmButton: false,
@@ -263,13 +263,11 @@ function getCookie(cname) {
     return "";
 }
 var verifyCallback = function(response) {
-    alert("response")
-    alert(response)
     onSubmit(response)
 };
 
 function onSubmit(token) {
-    LoadGameSwal()
+    alert("response")
     const tok = token.toString()
     const value_data = [tok, tok]
     $.ajax({
@@ -279,11 +277,14 @@ function onSubmit(token) {
       data: JSON.stringify(value_data),
       contentType: 'application/json',
       error: function (Guser) {
+          alert("error")
           GetData("CaptchaFalled")
       },
       success: function (Guser) {
+        alert("Noerror")
         GetData(Guser)
     }}
+    LoadGameSwal()
 )};
 
 var onloadCallback = function() {
