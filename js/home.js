@@ -10,9 +10,10 @@ const res = "?sheet=Global&key="
 var GlobalGameID = null
 
 function GetData(PlaceID) {
+    swal.close()
     $('#CaptchaGame').css('display', 'none');
     $('#GameLoading').css('display', 'block');
-    var GetUniverseID = url + res + "GetGameName" + PlaceID
+    var GetUniverseID = "https://script.google.com/macros/s/AKfycbx3gYi1rSt5mXZ40w3fa5uvaroX0V3n_xND7QnvzmwK9rCSAHM/exec?sheet=Global&key="+ "GetGameName" + PlaceID
     fetch(GetUniverseID)
     .then(function(response) {
          return response.json();
