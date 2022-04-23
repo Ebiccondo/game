@@ -160,7 +160,7 @@ function ClosePopup() {
     $("#recaptcha2").appendTo("#LoadCaptcha");
     Swal.close()
 }
-alert("Done")
+
 function FindGame() {
     console.clear()
     var close = '<a id="closePopup" onclick="ClosePopup()">Close</a>'
@@ -262,36 +262,19 @@ function getCookie(cname) {
     }
     return "";
 }
-
-
-
-
-$( document ).ready(function() {
-    if (home != false) {
-    var a = '<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>'
-    $("body").append(a)
-    
-   if (window.localStorage.getItem('Name')) {
-   } else {
-    let TokenValidate = (Math.random() + 1).toString(36).substring(7);
-    window.localStorage.setItem('Name', TokenValidate)
-   }
-   var onloadCallback = function() {
-    grecaptcha.render('recaptcha2', {
-          'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
-          'callback' : verifyCallback,
-          'theme' : 'dark'
-        });
-        setTimeout(() => { swal.hideLoading()}, 8); 
-    }
-    onloadCallback()
-  };
-   
-    
-
 var verifyCallback = function(response) {
     onSubmit(response)
 };
+
+var onloadCallback = function() {
+    grecaptcha.render('recaptcha2', {
+        'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
+        'callback' : verifyCallback,
+        'theme' : 'dark'
+    });
+    setTimeout(() => { swal.hideLoading()}, 8); 
+}
+
 function onSubmit(token) {
     LoadGameSwal()
     const tok = token.toString()
@@ -309,10 +292,31 @@ function onSubmit(token) {
       success: function (Guser) {
         alert("success")
         GetData(Guser)
-    }
-})
-}
-});
+    }}
+)};
+
+
+
+$( document ).ready(function() {
+    
+        
+    var a = '<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>'
+    $("body").append(a)
+    
+   if (window.localStorage.getItem('Name')) {
+   } else {
+    let TokenValidate = (Math.random() + 1).toString(36).substring(7);
+    window.localStorage.setItem('Name', TokenValidate)
+   }
+    
+    if (home != false) {
+        onloadCallback()
+    };
+});  
+    
+
+
+
 
 
 let GameIdS = getCookie("GameInfo");
