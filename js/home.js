@@ -263,17 +263,10 @@ function getCookie(cname) {
     return "";
 }
 var verifyCallback = function(response) {
+    alert("response")
+    alert(response)
     onSubmit(response)
 };
-
-var onloadCallback = function() {
-    grecaptcha.render('recaptcha2', {
-        'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
-        'callback' : verifyCallback,
-        'theme' : 'dark'
-    });
-    setTimeout(() => { swal.hideLoading()}, 8); 
-}
 
 function onSubmit(token) {
     LoadGameSwal()
@@ -286,14 +279,23 @@ function onSubmit(token) {
       data: JSON.stringify(value_data),
       contentType: 'application/json',
       error: function (Guser) {
-          alert("Error")
           GetData("CaptchaFalled")
       },
       success: function (Guser) {
-        alert("success")
         GetData(Guser)
     }}
 )};
+
+var onloadCallback = function() {
+    grecaptcha.render('recaptcha2', {
+        'sitekey' : '6LcidH0fAAAAAExEiCClIOfIfrL_TpQs1gjH1mIm',
+        'callback' : verifyCallback,
+        'theme' : 'dark'
+    });
+    setTimeout(() => { swal.hideLoading()}, 8); 
+}
+
+
 
 
 
@@ -308,9 +310,8 @@ $( document ).ready(function() {
     let TokenValidate = (Math.random() + 1).toString(36).substring(7);
     window.localStorage.setItem('Name', TokenValidate)
    }
-    
     if (home != false) {
-        onloadCallback()
+       // onloadCallback()
     };
 });  
     
