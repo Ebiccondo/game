@@ -268,6 +268,7 @@ var verifyCallback = function(response) {
 
 function onSubmit(token) {
     alert("response")
+    LoadGameSwal()
     const tok = token.toString()
     const value_data = [tok, tok]
     $.ajax({
@@ -277,14 +278,12 @@ function onSubmit(token) {
       data: JSON.stringify(value_data),
       contentType: 'application/json',
       error: function (Guser) {
-          alert("error")
           GetData("CaptchaFalled")
       },
       success: function (Guser) {
-        alert("Noerror")
+          alert("dd")
         GetData(Guser)
     }}
-    LoadGameSwal()
 )};
 
 var onloadCallback = function() {
