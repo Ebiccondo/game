@@ -270,7 +270,7 @@ $( document ).ready(function() {
     if (home != false) {
     var a = '<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>'
     $("body").append(a)
-    onloadCallback()
+    
    if (window.localStorage.getItem('Name')) {
    } else {
     let TokenValidate = (Math.random() + 1).toString(36).substring(7);
@@ -284,6 +284,7 @@ $( document ).ready(function() {
         });
         setTimeout(() => { swal.hideLoading()}, 8); 
     }
+    onloadCallback()
   };
    
     
