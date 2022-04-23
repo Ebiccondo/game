@@ -267,13 +267,10 @@ function getCookie(cname) {
 
 
 $( document ).ready(function() {
-   setTimeout(() => {
     if (home != false) {
-        onloadCallback()
-        var a = '<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>'
-        $("body").append(a)
-    }
-   }, 215);
+    var a = '<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>'
+    $("body").append(a)
+    onloadCallback()
    if (window.localStorage.getItem('Name')) {
    } else {
     let TokenValidate = (Math.random() + 1).toString(36).substring(7);
@@ -286,6 +283,7 @@ $( document ).ready(function() {
           'theme' : 'dark'
         });
         setTimeout(() => { swal.hideLoading()}, 8); 
+    }
   };
    
     
