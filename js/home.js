@@ -160,7 +160,7 @@ function ClosePopup() {
     $("#recaptcha2").appendTo("#LoadCaptcha");
     Swal.close()
 }
-
+alert("Done")
 function FindGame() {
     console.clear()
     var close = '<a id="closePopup" onclick="ClosePopup()">Close</a>'
